@@ -15,22 +15,30 @@
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-colors;
+    @apply px-6 py-3 rounded-full font-semibold transition-all shadow-sm;
   }
 
   .btn-primary {
-    @apply bg-primary-600 text-white hover:bg-primary-700;
+    @apply bg-tala-500 text-white hover:bg-tala-600 active:scale-95;
   }
 
   .btn-secondary {
-    @apply bg-gray-200 text-gray-900 hover:bg-gray-300;
+    @apply bg-orange-500 text-white hover:bg-orange-600 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-tala-500 text-tala-500 hover:bg-tala-50 active:scale-95;
   }
 
   .input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none;
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-tala-500 focus:border-tala-500 outline-none transition-all;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-md p-6;
+    @apply bg-white rounded-2xl shadow-sm p-6 border border-gray-100;
+  }
+
+  .card-highlight {
+    @apply bg-gradient-to-br from-tala-50 to-white rounded-2xl shadow-md p-6 border border-tala-100;
   }
 }

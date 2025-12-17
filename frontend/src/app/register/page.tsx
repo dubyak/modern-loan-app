@@ -58,112 +58,118 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 flex items-center justify-center p-4">
-      <div className="card max-w-md w-full">
-        <h1 className="text-3xl font-bold mb-6 text-center">Create Account</h1>
+    <div className="min-h-screen bg-gradient-to-br from-tala-50 to-green-50 flex items-center justify-center p-4">
+      <div className="max-w-md w-full">
+        {/* Logo/Branding */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-tala-600 mb-2">TALA</h1>
+          <p className="text-gray-600">Join thousands of entrepreneurs</p>
+        </div>
 
-        {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-4">
-            {error}
-          </div>
-        )}
+        <div className="card">
+          {error && (
+            <div className="bg-red-50 text-red-600 p-3 rounded-xl mb-4 text-sm">
+              {error}
+            </div>
+          )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="first_name" className="block text-sm font-semibold mb-2 text-gray-700">
+                  First Name
+                </label>
+                <input
+                  id="first_name"
+                  name="first_name"
+                  type="text"
+                  value={formData.first_name}
+                  onChange={handleChange}
+                  className="input"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="last_name" className="block text-sm font-semibold mb-2 text-gray-700">
+                  Last Name
+                </label>
+                <input
+                  id="last_name"
+                  name="last_name"
+                  type="text"
+                  value={formData.last_name}
+                  onChange={handleChange}
+                  className="input"
+                />
+              </div>
+            </div>
+
             <div>
-              <label htmlFor="first_name" className="block text-sm font-medium mb-1">
-                First Name
+              <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-gray-700">
+                Phone Number
               </label>
               <input
-                id="first_name"
-                name="first_name"
-                type="text"
-                value={formData.first_name}
+                id="phone"
+                name="phone"
+                type="tel"
+                value={formData.phone}
                 onChange={handleChange}
+                placeholder="+254712345678"
                 className="input"
+                required
               />
             </div>
 
             <div>
-              <label htmlFor="last_name" className="block text-sm font-medium mb-1">
-                Last Name
+              <label htmlFor="password" className="block text-sm font-semibold mb-2 text-gray-700">
+                Password
               </label>
               <input
-                id="last_name"
-                name="last_name"
-                type="text"
-                value={formData.last_name}
+                id="password"
+                name="password"
+                type="password"
+                value={formData.password}
                 onChange={handleChange}
                 className="input"
+                required
+                minLength={8}
+              />
+              <p className="text-xs text-gray-500 mt-1">
+                At least 8 characters
+              </p>
+            </div>
+
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-semibold mb-2 text-gray-700">
+                Confirm Password
+              </label>
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className="input"
+                required
               />
             </div>
-          </div>
 
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium mb-1">
-              Phone Number
-            </label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="+254712345678"
-              className="input"
-              required
-            />
-          </div>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="btn btn-primary w-full mt-6"
+            >
+              {isLoading ? 'Creating account...' : 'Create Account'}
+            </button>
+          </form>
 
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium mb-1">
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="input"
-              required
-              minLength={8}
-            />
-            <p className="text-sm text-gray-500 mt-1">
-              At least 8 characters
-            </p>
-          </div>
-
-          <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium mb-1">
-              Confirm Password
-            </label>
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              className="input"
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="btn btn-primary w-full"
-          >
-            {isLoading ? 'Creating account...' : 'Create Account'}
-          </button>
-        </form>
-
-        <p className="text-center mt-6 text-gray-600">
-          Already have an account?{' '}
-          <Link href="/login" className="text-primary-600 hover:underline">
-            Login here
-          </Link>
-        </p>
+          <p className="text-center mt-6 text-sm text-gray-600">
+            Already have an account?{' '}
+            <Link href="/login" className="text-tala-600 hover:underline font-semibold">
+              Login
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
