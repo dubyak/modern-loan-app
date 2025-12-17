@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Railway
+.railway/
+
+# Misc
+*.pid
+*.seed
+*.pid.lock
+.cache
